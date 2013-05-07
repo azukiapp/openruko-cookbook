@@ -1,0 +1,12 @@
+start on starting openruko-apiserver
+stop on stopping openruko-apiserver
+respawn
+
+setuid <%= node['user'] %>
+setgid <%= node['group'] %>
+
+chdir <%= node['openruko']['home'] %>/logplex
+
+script
+  ./logplex/bin/logplex >> /var/log/openruko/logplex.log 2>&1
+end script

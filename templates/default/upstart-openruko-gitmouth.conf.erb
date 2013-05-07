@@ -1,0 +1,14 @@
+start on starting openruko-apiserver
+stop on stopping openruko-apiserver
+respawn
+
+setuid <%= node['user'] %>
+setgid <%= node['group'] %>
+
+env APISERVER_KEY="<%= node['openruko']['apiserver_key'] %>"
+
+chdir <%= node['openruko']['home'] %>/gitmouth
+
+script
+  ./bin/gitmouth >> /var/log/openruko/gitmouth.log 2>&1
+end script

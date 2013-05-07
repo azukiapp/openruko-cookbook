@@ -1,0 +1,17 @@
+.vagrant
+solo.local.json
+Berksfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
+/openruko
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+

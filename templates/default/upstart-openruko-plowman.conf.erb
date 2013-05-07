@@ -1,0 +1,16 @@
+start on starting openruko-apiserver
+stop on stopping openruko-apiserver
+respawn
+
+setuid <%= node['user'] %>
+setgid <%= node['group'] %>
+
+env HOME="<%= node["user"]["home"] %>"
+env APISERVER_KEY="<%= node['openruko']['apiserver_key'] %>"
+env APISERVER_HOST="https://localhost:5000"
+
+chdir <%= node['openruko']['home'] %>/plowman
+
+script
+  ./bin/plowman >> /var/log/openruko/plowman.log 2>&1
+end script
