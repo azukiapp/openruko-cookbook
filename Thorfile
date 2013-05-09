@@ -6,7 +6,7 @@ require 'thor/foodcritic'
 require 'berkshelf/thor'
 
 class Openruko < Thor
-  desc "logs", "tail in logs files"
+  desc "logs", "tail logs files"
   method_option :files, :default => ["/var/log/openruko/*"], :type => :array, :aliases => "-f", :desc => "list of files to tail"
   method_option :wait, :default => true, :type => :boolean, :aliases => "-w", :desc => "wait for additional data to be appended"
   method_option :colored, :default => true, :type => :boolean, :aliases => "-c", :desc => "colored output"
@@ -35,7 +35,18 @@ class Openruko < Thor
 
     wait = options[:wait] ? '-f' : ''
     colored = options[:colored] ? "| #{awk}" : ''
-    pid = spawn("vagrant ssh -c \"tail #{wait} #{options[:files].join(" ")}\" #{colored}")
+    exec("vagrant ssh -c \"tail #{wait} #{options[:files].join(" ")}\" #{colored}")
+  end
+
+  desc "service", "services manage"
+  def service(serv, action)
+    exec("vagrant ssh -c \"sudo service #{serv} #{action}\"")
+  end
+
+private
+
+  def exec(cmd)
+    pid = spawn(cmd)
 
     Signal.trap("SIGINT") do
       Process.kill("SIGINT", pid)
