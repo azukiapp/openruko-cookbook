@@ -61,3 +61,20 @@ service "openruko-apiserver" do
   supports :restart => true, :start => true, :stop => true
   action [:enable, :start]
 end
+
+bash "add-default-openruko-user" do
+  user node['user']
+  group node['group']
+  code <<-EOF
+    psql openruko <<< "
+      SET search_path TO openruko_api,openruko_data,public;
+      SELECT * FROM add_user('#{node["openruko"]["default_user"]["email"]}', '#{node["openruko"]["default_user"]["user"]}', '#{node["openruko"]["default_user"]["password"]}');
+    "
+  EOF
+
+  not_if <<-EOF
+    psql openruko << "
+      SELECT email FROM openruko_data.oruser WHERE email = '#{node["openruko"]["default_user"]["email"]}'
+    " | grep '#{node["openruko"]["default_user"]["email"]}'
+  EOF
+end
