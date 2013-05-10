@@ -1,11 +1,22 @@
 include_recipe "apt"
 include_recipe "git"
+include_recipe "build-essential"
+include_recipe "openssl"
 include_recipe "nodejs::install_from_package"
 
 package "libssl0.9.8"
 package "uuid-dev"
 package "curl"
 package "wget"
+
+package "ruby1.9.1"
+
+bash "setup-ruby" do
+  code <<-EOF
+  sudo update-alternatives --set ruby /usr/bin/ruby1.9.1
+  sudo update-alternatives --set gem /usr/bin/gem1.9.1
+  EOF
+end
 
 bash "setup-local-domains" do
   user  "root"

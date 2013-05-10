@@ -1,7 +1,5 @@
 {
-    "run_list": [
-      "recipe[build-essential]",
-      "recipe[openssl]",
+    "api_run_list": [
       "recipe[postgresql::client]",
       "recipe[postgresql::server]",
       "recipe[openruko::apiserver]",
@@ -10,14 +8,14 @@
       "recipe[openruko::httprouting]",
       "recipe[openruko::heroku-toolbelt]",
       "recipe[openruko::client]",
-      "recipe[openruko::dynohost]",
       "recipe[openruko::integration-tests]",
-      "recipe[openruko::plowman]"
+      "recipe[openruko::plowman]",
+      "recipe[openruko::devtools]"
     ],
 
-    "reject_run": [
-      "recipe[python]",
-      "recipe[openruko::gitmouth]"
+    "dyno_run_list": [
+      "recipe[openruko::dynohost]",
+      "recipe[openruko::devtools]"
     ],
 
     "versions" : {
@@ -28,30 +26,27 @@
       "httprouting": "v0.2.1",
       "integration-tests": "v0.1.4",
       "logplex": "v0.1.0",
-      "gitmouth": "v0.1.2",
-      "rukorun": "v0.1.1"
+      "rukorun": "v0.1.1",
+      "plowman": "master"
     },
 
-    "user": "rukosan",
-    "group": "rukosan",
-    "home": "/home/rukosan",
+    "user": "vagrant",
+    "group": "vagrant",
+    "home": "/home/vagrant",
 
     "openruko": {
       "host": "mymachine.me",
-      "home": "/home/rukosan/openruko",
-      "passsword": "rukosan",
+      "home": "/vagrant/openruko",
       "apiserver_key": "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
-      "apiserver_host": "openruko.local",
-      "apiserver_ip": "127.0.0.1",
-      "dev_domain": "openruko.local",
-      "live_domain": "openruko.com"
+      "apiserver_host": "mymachine.me",
+      "apiserver_ip": "127.0.0.1"
     },
 
     "s3": {
       "s3_key": "123",
       "s3_secret": "123",
       "s3_bucket": "openruko",
-      "s3_hostname": "openruko.local",
+      "s3_hostname": "mymachine.me",
       "s3_port": "4567"
     },
 
@@ -64,7 +59,7 @@
       ],
       "password": {
         "postgres": "password",
-        "rukosan": "rukosan"
+        "vagrant": "vagrant"
       }
     },
 
