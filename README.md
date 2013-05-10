@@ -2,8 +2,6 @@
 
 Chef recipes for bootstrapping [OpenRuko](https://github.com/openruko).
 
-Both a Vagrantfile for running local development environments and, using Vagrant 1.2, for deploying to VPSs.
-
 # Requirements
 
 - Vagrant 1.2 or major
@@ -25,7 +23,7 @@ $ vagrant up
 Add in `/etc/hosts`:
 
 ```
-33.33.33.10 mymachine.me php.mymachine.me rack.mymachine.me node.mymachine.me
+10.10.10.100 mymachine.me php.mymachine.me rack.mymachine.me node.mymachine.me
 ```
 
 # Usage
