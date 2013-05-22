@@ -26,6 +26,12 @@ Add in `/etc/hosts`:
 10.10.10.100 mymachine.me php.mymachine.me rack.mymachine.me node.mymachine.me
 ```
 
+# Workarounds
+
+During provision, in case of `The repository file to create is nil, cannot continue.` error.
+You need to `vagrant ssh api # or dynohost`, and update chef gem. Execute:
+`sudo gem install chef -v 10.26.0 --no-rdoc --no-ri`
+
 # Usage
 
 In a terminal:
