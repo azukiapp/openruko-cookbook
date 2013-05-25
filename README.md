@@ -26,6 +26,14 @@ Add in `/etc/hosts`:
 10.10.10.100 mymachine.me php.mymachine.me rack.mymachine.me node.mymachine.me
 ```
 
+Add in `~/.ssh/config`:
+
+```
+Host mymachine.me
+  port 3333
+  StrictHostKeyChecking no
+```
+
 # Workarounds
 
 During provision, in case of `The repository file to create is nil, cannot continue.` error.
