@@ -3,6 +3,11 @@ include_recipe "openruko::default"
 # Various repos are combined here so that we can define a Dynohost as a separate server
 package "lxc"
 
+# Packages to run php projects
+package "libpq5"
+package "libltdl7"
+package "libjpeg62"
+
 #############
 # Codonhooks
 #############
