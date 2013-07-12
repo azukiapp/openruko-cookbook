@@ -22,7 +22,7 @@ env S3_SECRET="<%= node['s3']['s3_secret'] %>"
 env S3_BUCKET="<%= node['s3']['s3_bucket'] %>"
 env APISERVER_KEY="<%= node['openruko']['apiserver_key'] %>"
 env APISERVER_HOST="<%= node['openruko']['apiserver_host'] %>"
-env LOGPLEX_HOST="<%= node['openruko']['apiserver_host'] %>"
+env LOGPLEX_HOST="<%= node['openruko']['logplex_host'] %>"
 
 chdir <%= node['openruko']['home'] %>/apiserver
 
