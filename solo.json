@@ -40,6 +40,7 @@
       "apiserver_key": "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
       "apiserver_host": "mymachine.me",
       "apiserver_ip": "127.0.0.1",
+      "apiserver_port": "5000",
       "default_user": {
         "user": "rukosan",
         "email": "rukosan@openruko.com",

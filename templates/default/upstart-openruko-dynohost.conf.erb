@@ -11,6 +11,9 @@ env RUKORUN_PATH="<%= node['openruko']['home'] %>/rukorun"
 env CODONHOOKS_PATH="<%= node['openruko']['home'] %>/codonhooks"
 env APISERVER_KEY="<%= node['openruko']['apiserver_key'] %>"
 env APISERVER_HOST="<%= node['openruko']['apiserver_host'] %>"
+<% if node['openruko']['apiserver_port'] %>
+env APISERVER_PORT="<%= node['openruko']['apiserver_port'] %>"
+<% end %>
 env LOGPLEX_HOST="<%= node['openruko']['apiserver_host'] %>"
 
 chdir <%= node['openruko']['home'] %>/dynohost

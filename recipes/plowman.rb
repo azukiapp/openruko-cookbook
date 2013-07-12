@@ -17,7 +17,7 @@ bash "setup-plowman" do
   code <<-EOF
   set -e
   if [ ! -f ./bin/activate ]; then
-		make
+    make
   fi
   EOF
 end

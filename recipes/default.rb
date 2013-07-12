@@ -2,7 +2,7 @@ include_recipe "apt"
 include_recipe "git"
 include_recipe "build-essential"
 include_recipe "openssl"
-include_recipe "nodejs::install_from_package"
+include_recipe "nodejs::install_from_binary"
 
 package "libssl0.9.8"
 package "uuid-dev"
