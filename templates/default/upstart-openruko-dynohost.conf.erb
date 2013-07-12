@@ -14,7 +14,10 @@ env APISERVER_HOST="<%= node['openruko']['apiserver_host'] %>"
 <% if node['openruko']['apiserver_port'] %>
 env APISERVER_PORT="<%= node['openruko']['apiserver_port'] %>"
 <% end %>
-env LOGPLEX_HOST="<%= node['openruko']['apiserver_host'] %>"
+<% if node['openruko']['apiserver_ssl_verify'] %>
+env APISERVER_SSL_VERIFY="<%= node['openruko']['apiserver_ssl_verify'] %>"
+<% end %>
+env LOGPLEX_HOST="<%= node['openruko']['logplex_host'] %>"
 
 chdir <%= node['openruko']['home'] %>/dynohost
 

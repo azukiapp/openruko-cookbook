@@ -41,6 +41,8 @@
       "apiserver_host": "mymachine.me",
       "apiserver_ip": "127.0.0.1",
       "apiserver_port": "5000",
+      "apiserver_ssl_verify": "false",
+      "logplex_host": "127.0.0.1",
       "default_user": {
         "user": "rukosan",
         "email": "rukosan@openruko.com",
