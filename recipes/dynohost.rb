@@ -8,6 +8,9 @@ package "libpq5"
 package "libltdl7"
 package "libjpeg62"
 
+# Mysql packages
+package "libmysqlclient-dev"
+
 #############
 # Codonhooks
 #############
